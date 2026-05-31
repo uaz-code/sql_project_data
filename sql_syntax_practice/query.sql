@@ -294,6 +294,11 @@ LIMIT 100;
 
 
 
+/*
+find the count of no. of remote job postings per skill
+--display top 5 skills by their demand in remote jobs
+--include skill ID , name and count of postings requiring skill 
+*/
 
 WITH remote_job_skill AS (
   SELECT
@@ -324,7 +329,7 @@ WITH remote_job_skill AS (
   JOIN skills_job_dim sjd
   using (job_id)
   WHERE jpf.job_work_from_home = TRUE
-  AND jpf.job_title = 'Data Analyst'
+  AND jpf.job_title_short = 'Data Analyst'
   GROUP By sjd.skill_id)
 
 SELECT 
