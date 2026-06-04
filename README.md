@@ -3,7 +3,7 @@ This project analyzes the Data Analyst job market, examining which skills are mo
 
 SQL queries -> [Project Data](/project_sql/)
 
-Dataset used for this project -> [CSV](/csv_files/), [SQL](/sql_load/)
+Dataset used for this project -> [SQL Course](https://lukebarousse.com/sql)
 
 The main objectives of this project are to explore the Data Analyst job market and answer the following key questions:
 
