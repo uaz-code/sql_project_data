@@ -2,15 +2,16 @@
 This project analyzes the Data Analyst job market, examining which skills are most in demand and which are associated with higher average salaries within Data Analyst roles. By evaluating both demand and salary trends, the analysis identifies the skills that offer the strongest combination of job opportunities and earning potential for career development in data analytics.
 # Background
 [SQL Project Data](/project_sql/)
-# Tools I used
+# **Tools I used**
 - **SQL** – Used to query, clean, and analyze data by extracting insights from databases.
 - **PostgreSQL** – Served as the primary database management system for storing and querying project data.
 - **SQLite** – Used during the initial stages of the project for lightweight database practice and testing.
 - **VS Code** – Main development environment used to write, run, and manage SQL scripts and project files.
 - **Git** – Used for version control to track changes and manage project development.
 - **GitHub** – Used to publish the project, store code remotely, and showcase results in a portfolio repository.
-# The Analysis
+# **The Analysis**
 The analysis was conducted with a focus on the following five core objectives:
+
   ## 1) What are the top paying jobs for data Analyst?
   Analyzed remote Data Analyst job postings to identify the top 10 highest-paying roles. Positions without salary information were excluded to ensure accurate salary comparisons and to gain insights into the roles offering the highest compensation.
 
@@ -26,7 +27,7 @@ The analysis was conducted with a focus on the following five core objectives:
 | Principal Data Analyst, AV Performance Analysis | 189,000.0 | Motional |
 | Principal Data Analyst | 186,000.0 | SmartAsset |
 | ERM Data Analyst | 184,000.0 | Get It Recruit - Information Technology |
-<br><br><br>
+<br><br>
 
 {*I did a query to pull the top 10 highest-paying remote Data Analyst jobs, joining company data to get company names, filtering out missing salaries, and sorting everything in descending order by average salary.*}
 ```sql
@@ -47,10 +48,13 @@ WHERE
 ORDER BY salary_year_avg DESC
 LIMIT 10;
 ```
-
+<br><br><br>
   ## 2) What are the skills required for these high paying jobs?
 
-This analysis builds on the previous table of the top 10 highest-paying remote Data Analyst roles by incorporating the associated technical skill requirements, highlighting the key competencies linked to higher salaries and helping job seekers prioritize the most in-demand skills for career growth.
+- This analysis builds on the previous table of the top 10 highest-paying remote Data Analyst roles by incorporating the associated technical skill requirements, highlighting the key competencies linked to higher salaries and helping job seekers prioritize the most in-demand skills for career growth.
+
+- The two highest-paying jobs in the dataset ($650,000 and $336,500) had no associated skill records, so their requirements could not be analyzed and may have involved leadership, domain expertise, or other responsibilities not captured in the skills data.
+
 
  | Job Title | Avg Salary | Skills |
 |----------|------------|--------|
@@ -65,41 +69,12 @@ This analysis builds on the previous table of the top 10 highest-paying remote D
 | Principal Data Analyst | 186000.0 | sql, python, go, snowflake, pandas, numpy, excel, tableau, gitlab |
 | ERM Data Analyst | 184000.0 | sql, python, r |
 
-<br><br><br>
-*{I did this analysis using a CTE to first extract the top 10 highest-paying remote Data Analyst roles, then used a LEFT JOIN instead of an INNER JOIN to highlight that the top two roles have NULL skill values. I then refined the output using STRING_AGG to consolidate skills into a single column, reducing row duplication and avoiding repetition of job title and average salary values.}*
+<br><br>
+*I did this analysis using a CTE to first extract the top 10 highest-paying remote Data Analyst roles, then used a LEFT JOIN instead of an INNER JOIN to highlight that the top two roles have NULL skill values. I then refined the output using STRING_AGG to consolidate skills into a single column, reducing row duplication and avoiding repetition of job title and average salary values.*
+
+
 
 ```sql
-WITH top_paying_skills AS (
-SELECT
-    job_id,
-    job_title,
-    salary_year_avg,
-    cd.name as company_name
-FROM
-    job_postings_fact jpf
-LEFT JOIN company_dim cd
-    ON jpf.company_id = cd.company_id
-WHERE
-    job_title_short = 'Data Analyst' AND
-    job_location = 'Anywhere' AND
-    salary_year_avg IS NOT NULL
-ORDER BY salary_year_avg DESC
-LIMIT 10)
-
-SELECT 
-    top_paying_skills.*,
-    sd.skills
-FROM top_paying_skills
-LEFT JOIN skills_job_dim sjd
-USING (job_id) 
-LEFT JOIN skills_dim sd
-ON sjd.skill_id = sd.skill_id
-ORDER BY salary_year_avg DESC;
-
-
---using String agg results can be compressed into 10 rows avoiding repetteion 
-
-
 WITH top_paying_skills AS (
 SELECT
     job_id,
@@ -130,11 +105,124 @@ GROUP BY
     tps.salary_year_avg
 ORDER BY tps.salary_year_avg DESC;
 ```
-  
+<br><br><br>
+
+
+
   ## 3) What are the most in demand skills for Data Analyst?
   I looked at all job postings, not just remote ones, to find the top 10 most in-demand data analysis skills based on how often they appear. This gives a clearer view of the most commonly required skills in the overall job market and what job seekers should focus on.
-  ![Most in demand Data Analysis skills](/Users/desk/sql_project_data/project_sql/images)
+
+  
+  ![Most in demand Data Analysis skills](/project_sql/images/top10skills.png)
+
+<br><br>
+
+*I did this SQL query to analyze the most in-demand skills for Data Analyst roles. I joined the job postings table with the skills mapping tables to link each job to its required skills, then counted how often each skill appears across all Data Analyst job listings. After grouping by skill and sorting by demand count in descending order, I limited the results to the top 10 most frequently requested skills.*
+
+```sql
+SELECT 
+    skills,
+    COUNT (skills_job_dim.job_id) AS demand_count
+FROM job_postings_fact 
+LEFT JOIN skills_job_dim USING (job_id) 
+LEFT JOIN skills_dim USING (skill_id)
+WHERE job_title_short = 'Data Analyst'
+--AND job_no_degree_mention IS TRUE
+GROUP BY skills
+ORDER BY demand_count DESC
+LIMIT 10;
   ## 4) What are the top skills based on salary from Data Analyst?
   ## 5) What are the most optimal skills to learn? i.e High Demand & High Salary
+  ```
+
+<br><br><br>
+
+## 4)What are the top skills based on salary from Data Analyst?
+- I analyzed the average salary associated with each skill for Data Analyst roles, focusing only on positions with specified salary data, regardless of location. This helps reveal how different skills influence salary levels and identifies the most financially rewarding skills in the field. The results are limited to the top 10 highest-paying skills.
+- Average salary can be misleading. Top paying skills appear in very few jobs. A small number of high-paying roles can significantly inflate the average salary.
+
+| skills     | avg_salary | job_count |
+|------------|------------|-------|
+| svn        | 400000     | 1     |
+| solidity   | 179000     | 1     |
+| couchbase  | 160515     | 1     |
+| datarobot  | 155486     | 1     |
+| golang     | 155000     | 2     |
+| mxnet      | 149000     | 2     |
+| dplyr      | 147633     | 3     |
+| vmware     | 147500     | 1     |
+| terraform  | 146734     | 3     |
+| twilio     | 138500     | 2     |
+
+<br><br>
+*I used this SQL query to find which skills are linked to the highest average salaries for Data Analyst roles. Job postings were joined with the skills tables to map each job to its required skills, and records with NULL salary values were excluded. The average salary per skill was then calculated along with the number of job postings. Results were grouped by skill, sorted by highest average salary, and limited to the top 10 highest-paying skills.*
+
+```sql
+SELECT 
+    skills,
+    ROUND (AVG(salary_year_avg), 0) AS avg_salary,
+    COUNT (job_id) AS job_count
+FROM job_postings_fact 
+LEFT JOIN skills_job_dim USING (job_id) 
+LEFT JOIN skills_dim USING (skill_id)
+WHERE job_title_short = 'Data Analyst'
+AND salary_year_avg IS NOT NULL
+--AND job_work_from_home IS TRUE
+GROUP BY skills
+ORDER BY avg_salary DESC
+LIMIT 10;
+```
+
+## 5)What are the most optimal skills to learn? i.e High Demand & High Salary
+I used this analysis to identify the most optimal skills for Data Analyst roles by combining demand (job count) and average salary. The data was filtered in two ways:
+
+- All positions were analyzed to get a broad view of in-demand skills
+- Remote positions with specified salaries were then used for a deeper focus on high-value opportunities
+
+This helps highlight skills that offer both strong job security and higher financial reward, providing useful insight for Data Analyst career development.
+
+- All Positions (results limited to top 15)
+
+    | skills      | demand_count | avg_salary |
+    |-------------|-------------|------------|
+    | sql         | 3083        | 96435      |
+    | excel       | 2143        | 86419      |
+    | python      | 1840        | 101512     |
+    | tableau     | 1659        | 97978      |
+    | r           | 1073        | 98708      |
+    | power bi    | 1044        | 92324      |
+    | word        | 527         | 82941      |
+    | powerpoint  | 524         | 88316      |
+    | sas         | 500         | 93707      |
+    | sas         | 500         | 93707      |
+    | sql server  | 336         | 96191      |
+    | oracle      | 332         | 100964     |
+    | azure       | 319         | 105400     |
+    | aws         | 291         | 106440     |
+    | go          | 288         | 97267      |
+
+
+- Remote  Positions only  (results limited to top 10)
+
+    | skills     | demand_count | avg_salary |
+    |------------|-------------|------------|
+    | sql        | 398         | 97237      |
+    | excel      | 256         | 87288      |
+    | python     | 236         | 101397     |
+    | tableau    | 230         | 99288      |
+    | r          | 148         | 100499     |
+    | power bi   | 110         | 97431      |
+    | sas        | 63          | 98902      |
+    | sas        | 63          | 98902      |
+    | powerpoint | 58          | 88701      |
+    | looker     | 49          | 103795     |
+
+<br><br>
+
+![Optimal Skills Remote](/project_sql/images/optimalskills_remote.png)
+
 # What I learned
+
+
+
 # Conclusions 
