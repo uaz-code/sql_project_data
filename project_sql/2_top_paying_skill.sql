@@ -40,8 +40,8 @@ INNER JOIN skills_dim sd
 ON sjd.skill_id = sd.skill_id
 ORDER BY salary_year_avg DESC;
 
-----|top 2 paying skills  skills is NULL which can be 
---included using left join|
+----|top 2 paying jobs the skills value is NULL which can be 
+--included using left join instead of inner join|
 
 WITH top_paying_skills AS (
 SELECT
@@ -68,7 +68,44 @@ LEFT JOIN skills_job_dim sjd
 USING (job_id) 
 LEFT JOIN skills_dim sd
 ON sjd.skill_id = sd.skill_id
+ORDER BY salary_year_avg DESC;
+
+
+--using String agg results can be compressed into 10 rows avoiding repetteion 
+--of job_title and salary_avg_year values
+--because job_title and salary_avg_year values both have corresponding repeating 
+--values they can both be mentioned in groupby and string agg can be used for skills
+
+WITH top_paying_skills AS (
+SELECT
+    job_id,
+    job_title,
+    salary_year_avg,
+    cd.name as company_name
+FROM
+    job_postings_fact jpf
+LEFT JOIN company_dim cd
+    ON jpf.company_id = cd.company_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_location = 'Anywhere' AND
+    salary_year_avg IS NOT NULL
 ORDER BY salary_year_avg DESC
+LIMIT 10)
+SELECT 
+    tps.job_title,
+    tps.salary_year_avg,
+    STRING_AGG(sd.skills, ', ') AS skills
+FROM top_paying_skills tps
+LEFT JOIN skills_job_dim sjd
+    USING (job_id)
+LEFT JOIN skills_dim sd
+    ON sjd.skill_id = sd.skill_id
+GROUP BY 
+    tps.job_title,
+    tps.salary_year_avg
+ORDER BY tps.salary_year_avg DESC;
+
 
 /* KEY FINDINGS
   --SQL was the most frequently requested skill, appearing 8 times,

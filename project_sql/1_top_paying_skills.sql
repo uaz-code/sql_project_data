@@ -18,7 +18,7 @@
         -- Focus on job postings with specified salaries.
         --Why? Highlight the top paying opportuniteis for 
           Data Analysts, offering insights into 
-          optimal skills and highest paid roles
+          highest paid roles
         */
 
 SELECT
@@ -36,4 +36,4 @@ WHERE
     job_location = 'Anywhere' AND
     salary_year_avg IS NOT NULL
 ORDER BY salary_year_avg DESC
-LIMIT 10
+LIMIT 10;

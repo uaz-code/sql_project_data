@@ -4,14 +4,14 @@
     What are the most in demand skills for data analysis?
     Identify the top 10 in demand skills
     Focus on all job postings
-    Why? Retreives the top 5 skills with highest demand providing
+    Why? Retreives the top 10 skills with highest demand providing
     insight into most valuable skills */
 
 
 
 
-      ---OR |alternatively can use only two tables but since
-      --further filtering is req so not applicable|-
+      --OR |alt could use only two tables skills_dim & skills_job_dim but since
+      --further filtering is req to filter Data analyst roles so not applicable|-
 
             SELECT 
                 skills,
@@ -35,5 +35,5 @@ WHERE job_title_short = 'Data Analyst'
 --AND job_no_degree_mention IS TRUE
 GROUP BY skills
 ORDER BY demand_count DESC
-LIMIT 10
+LIMIT 10;
 
