@@ -17,7 +17,23 @@ AND salary_year_avg IS NOT NULL
 --AND job_work_from_home IS TRUE
 GROUP BY skills
 ORDER BY avg_salary DESC
-LIMIT 100
+LIMIT 10;
+
+--add job_id COUNT to see how many listings these top skills appear in
+
+SELECT 
+    skills,
+    ROUND (AVG(salary_year_avg), 0) AS avg_salary,
+    COUNT (job_id) AS job_count
+FROM job_postings_fact 
+LEFT JOIN skills_job_dim USING (job_id) 
+LEFT JOIN skills_dim USING (skill_id)
+WHERE job_title_short = 'Data Analyst'
+AND salary_year_avg IS NOT NULL
+--AND job_work_from_home IS TRUE
+GROUP BY skills
+ORDER BY avg_salary DESC
+LIMIT 10;
 
 /*
 --Key Findings from the Highest-Paying Skills Analysis
