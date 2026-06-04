@@ -5,8 +5,7 @@
   2)What are the skills required for these high paying jobs?
   3)What are the most in demand skills for Data Analyst?
   4)What are the top skills based on salary from Data Analyst?
-  5)What are the most optimal skills to learn?
-        i.e High Demand & High Salary
+  5)What are the most optimal skills to learn?i.e High Demand & High Salary
 --------------------------------------------------------------------
 
 
@@ -18,7 +17,7 @@
         -- Focus on job postings with specified salaries.
         --Why? Highlight the top paying opportuniteis for 
           Data Analysts, offering insights into 
-          highest paid roles
+          highest paid roles.
         */
 
 SELECT
