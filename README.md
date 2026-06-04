@@ -24,6 +24,7 @@ The main objectives of this project are to explore the Data Analyst job market a
 - **VS Code** – Main development environment used to write, run, and manage SQL scripts and project files.
 - **Git** – Used for version control to track changes and manage project development.
 - **GitHub** – Used to publish the project, store code remotely, and showcase results in a portfolio repository.
+- **ChatGPT** – Used to support learning, SQL query development, debugging, and data analysis. It assisted with understanding concepts, resolving errors, exploring alternative solutions, validating logic, and accelerating syntax reference and problem-solving throughout the project.
 
 <br><br><br>
 
