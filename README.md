@@ -46,6 +46,7 @@ The analysis was conducted with a focus on the following five core objectives:
 | Principal Data Analyst, AV Performance Analysis | 189,000.0 | Motional |
 | Principal Data Analyst | 186,000.0 | SmartAsset |
 | ERM Data Analyst | 184,000.0 | Get It Recruit - Information Technology |
+
 <br><br>
 
 *I ran a query to pull the top 10 highest-paying remote Data Analyst jobs, joining company data to get company names, filtering out missing salaries, and sorting everything in descending order by average salary.*
