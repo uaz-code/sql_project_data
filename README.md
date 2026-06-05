@@ -50,7 +50,7 @@ The analysis was conducted with a focus on the following **five core objectives:
 | Principal Data Analyst | 186,000.0 | SmartAsset |
 | ERM Data Analyst | 184,000.0 | Get It Recruit - Information Technology |
 
-<br><br>
+<br>
 
 #### 🧾 Query Summary
 *I ran a query to pull the top 10 highest-paying Data Analyst jobs, joining company data to get company names, filtering out missing salaries, and sorting everything in descending order by average salary.*
@@ -102,7 +102,7 @@ This analysis builds on the previous table of the top 10 highest-paying remote D
 | Principal Data Analyst | 186000.0 | sql, python, go, snowflake, pandas, numpy, excel, tableau, gitlab |
 | ERM Data Analyst | 184000.0 | sql, python, r |
 
-<br><br>
+<br>
 
 #### 🧾 Query Summary
 *I used a CTE to extract the top 10 highest-paying remote Data Analyst roles, then applied a LEFT JOIN instead of an INNER JOIN to highlight missing skill data. I then refined the output using STRING_AGG to consolidate skills into a single column, reducing row duplication and avoiding repetition of job title and average salary values.*
@@ -156,8 +156,6 @@ ORDER BY tps.salary_year_avg DESC;
 
 <br><br>
 
-
-
   ### 3. What are the most in demand skills for Data Analyst?
 
   I looked at **all job postings**, not just remote ones, to find the **top 10 most in-demand data analysis skills** based on how often they appear. This gives a clearer view of the most commonly required **skills** in the overall job market and what job seekers should focus on.
@@ -166,7 +164,7 @@ ORDER BY tps.salary_year_avg DESC;
 #### Most in demand Data Analysis skills
 ![Most in demand Data Analysis skills](/project_sql/images/top10skills.png)
 
-<br><br>
+<br>
 
 #### 🧾 Query Summary
 *I ran this SQL query to analyze the most in-demand skills for Data Analyst roles. I joined the job postings table with the skills mapping tables to link each job to its required skills, then counted how often each skill appears across all Data Analyst job listings. After grouping by skill and sorting by demand count in descending order, I limited the results to the top 10 most frequently requested skills.*
@@ -212,7 +210,7 @@ LIMIT 10;
 | terraform  | 146734     | 3     |
 | twilio     | 138500     | 2     |
 
-<br><br>
+<br>
 
 #### 🧾 Query Summary
 *I used this SQL query to find which skills are linked to the highest average salaries for Data Analyst roles. Job postings were joined with the skills tables to map each job to its required skills, and records with NULL salary values were excluded. The average salary per skill was then calculated along with the number of job postings. Results were grouped by skill, sorted by highest average salary, and limited to the top 10 highest-paying skills.*
@@ -259,6 +257,8 @@ This helps highlight **skills** that offer both **strong job security and higher
 
 Applying the filter 'salary_year_avg IS NOT NULL' significantly reduces the dataset size, as many job postings do not disclose salary information [Jump to Most in demand Data Analysis skills](#most-in-demand-data-analysis-skills). This results in lower overall demand counts and slightly different skill distributions compared to the full dataset. Therefore, salary-based analyses represent a filtered subset of the market focused only on postings with available yearly salary data. However, based on a comparison of skill rankings in both the full and filtered datasets, the overall order of top skills remains largely consistent.
 
+<br>
+
 - **All positions** (results limited to top 15)
 
     | skills      | demand_count | avg_salary |
@@ -278,6 +278,8 @@ Applying the filter 'salary_year_avg IS NOT NULL' significantly reduces the data
     | azure       | 319         | 105400     |
     | aws         | 291         | 106440     |
     | go          | 288         | 97267      |
+
+<br>
 
 
 - **Remote  Positions** only  (results limited to top 10).
@@ -301,7 +303,7 @@ Applying the filter 'salary_year_avg IS NOT NULL' significantly reduces the data
 
 ![Optimal Skills Remote](/project_sql/images/optimalskills_remote.png)
 
-<br><br>
+<br>
 
 #### 🧾 Query Summary
 *I used this query to analyze Data Analyst skills for all positions (top 15 results) and separately for remote-only roles (top 10 results). It calculates skill demand and average salary using two CTEs, then joins them to identify skills with strong demand and pay. The results are ranked by demand and salary to compare overall market trends with remote job trends.*
