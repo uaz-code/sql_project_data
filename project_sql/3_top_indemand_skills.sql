@@ -37,3 +37,23 @@ GROUP BY skills
 ORDER BY demand_count DESC
 LIMIT 10;
 
+
+/*
+--Key findings:
+
+--SQL was the most in-demand skill, appearing in 92,628 job postings, making it the core 
+  technical skill for Data Analyst roles.
+--Excel and Python ranked second and third, highlighting the continued importance of 
+  spreadsheet analysis alongside programming and automation capabilities.
+--Tableau and Power BI were also highly sought after, demonstrating strong demand for 
+  data visualization and business intelligence skills.
+--R and SAS remained relevant analytical tools, though they appeared less frequently than Python.
+--Business-oriented tools such as PowerPoint, Word, and SAP also featured among the top skills, 
+  indicating that communication, reporting, and enterprise system knowledge are valuable 
+  complements to technical expertise.
+--Overall, the most in-demand Data Analyst skill set combines data querying (SQL), analysis and 
+  automation (Python, Excel), visualization (Tableau, Power BI), and business communication tools.
+
+*/
+
+

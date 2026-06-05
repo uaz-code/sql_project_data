@@ -53,7 +53,10 @@ LIMIT 15;
 
 -----------------------------------------------
 
---(REMOTE poistions only)
+
+
+                            --(REMOTE poistions only)
+                            
 WITH skills_demand AS 
     (SELECT 
         skills,
