@@ -253,6 +253,8 @@ I used this analysis to identify the most **optimal skills for Data Analyst role
 
 This helps highlight **skills** that offer both **strong job security and higher financial reward**, providing useful insight for **Data Analyst career development**.
 
+<br>
+
 ⚠️ IMPORTANT NOTE
 
 Applying the filter 'salary_year_avg IS NOT NULL' significantly reduces the dataset size, as many job postings do not disclose salary information [Jump to Most in demand Data Analysis skills](#most-in-demand-data-analysis-skills). This results in lower overall demand counts and slightly different skill distributions compared to the full dataset. Therefore, salary-based analyses represent a filtered subset of the market focused only on postings with available yearly salary data. However, based on a comparison of skill rankings in both the full and filtered datasets, the overall order of top skills remains largely consistent.
