@@ -75,7 +75,7 @@ LIMIT 10;
 ```
 <br>
 
-### Key Observations
+#### Key Observations
 
 - **Top-paying remote Data Analyst roles** offer salaries ranging from $184K to $650K annually.
 - The highest-paying position is titled "Data Analyst" at Mantys with a salary of $650K, though the title alone may not fully reflect the role's seniority, responsibilities, or specialized requirements.
@@ -141,7 +141,7 @@ ORDER BY tps.salary_year_avg DESC;
 ```
 <br>
 
-### Key Observations
+#### Key Observations
 
 - **SQL, Python, and Tableau** were the most common skills among the **highest-paying Data Analyst roles**, highlighting the importance of data querying, programming,
     and visualization expertise.
@@ -163,7 +163,7 @@ ORDER BY tps.salary_year_avg DESC;
   I looked at **all job postings**, not just remote ones, to find the **top 10 most in-demand data analysis skills** based on how often they appear. This gives a clearer view of the most commonly required **skills** in the overall job market and what job seekers should focus on.
 
   
-## Most in demand Data Analysis skills
+#### Most in demand Data Analysis skills
 ![Most in demand Data Analysis skills](/project_sql/images/top10skills.png)
 
 <br><br>
@@ -185,7 +185,7 @@ LIMIT 10;
 ```
 <br>
 
-### Key Observations
+#### Key Observations
 
 - **SQL was the most in-demand skill**, appearing in 92,628 postings, making it a fundamental requirement for Data Analyst roles.
 - **Excel and Python** were also highly sought after, highlighting the importance of data analysis and automation skills.
@@ -234,7 +234,7 @@ LIMIT 10;
 ```
 <br>
 
-### Key Observations
+#### Key Observations
 
 - **Average salary** can be misleading, as niche skills like **SVN and Solidity** may have high averages due to very few job postings.
 - Cloud and data engineering tools **(Snowflake, Databricks, Spark, AWS, Azure)** are strongly associated with higher salaries.
@@ -350,7 +350,7 @@ LIMIT 15;
 ```
 <br>
 
-### Key Observations
+#### Key Observations
 
 - **SQL is the most valuable core skill**, with the highest demand in both remote and overall roles and a strong average salary (~$97K), making it the best all-round skill.
 - **Python, Tableau, and R** provide a strong balance of demand and salary, making them key complementary skills for Data Analysts.
@@ -421,9 +421,7 @@ LIMIT 15;
 
  - A key consideration in this analysis is the impact of filtering out records with **missing salary data (salary_year_avg IS NOT NULL)**. Since a significant portion of job postings do not include salary information, this **reduces the dataset size** and introduces a filtered view of the overall market.
 
-- However, based on a comparison of skill rankings in both the full and filtered datasets, **the overall order of top skills remains largely consistent**. This suggests that missing salary values are likely distributed in **a relatively uniform manner** across skills and do not appear to significantly distort the overall skill demand hierarchy.
-
-- **A separate analysis** below further examines this distribution stability to confirm whether the observed trends hold after filtering.
+- However, based on a comparison of skill rankings in both the full and filtered datasets, **the overall order of top skills remains largely consistent**. This suggests that missing salary values are likely distributed in **a relatively uniform manner**. A separate analysis** below further examines this distribution stability in depth to confirm whether the observed trends hold after filtering.
 
 <br>
 
