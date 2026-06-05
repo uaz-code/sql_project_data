@@ -14,7 +14,7 @@ The main objectives of this project are to explore the Data Analyst job market a
   4. What are the **top skills based on salary** from Data Analyst?
   5. What are the most **optimal skills** to learn (i.e., high demand and high salary)?
 
-<br><br><br><br><br>
+<br><br><br>
 
 
 # **⚙️ Tools I used**
@@ -27,7 +27,7 @@ The main objectives of this project are to explore the Data Analyst job market a
 - **GitHub** – Used to publish the project, store code remotely, and showcase results in a portfolio repository.
 - **ChatGPT** – Used to support learning, SQL query development, debugging, and data analysis. It assisted with understanding concepts, resolving errors, exploring alternative solutions, validating logic, and accelerating syntax reference and problem-solving throughout the project.
 
-<br><br><br><br><br>
+<br><br><br>
 
 
 # **🔍 The Analysis**
@@ -82,7 +82,7 @@ LIMIT 10;
 - Most of the other highest-paying positions are **senior or leadership-level** roles, such as Director and Principal Data Analyst positions.
 - This suggests that advanced **expertise, specialized skills, and leadership** responsibilities are often associated with higher compensation in data analytics roles.**
 
-<br><br><br>
+<br><br>
 
   ## 2. What are the skills required for these high paying jobs?
 
@@ -154,7 +154,7 @@ ORDER BY tps.salary_year_avg DESC;
 
 - **The two highest-paying jobs ($650K and $336.5K)** had no associated skill records, so their compensation may have been influenced by factors not captured in the dataset, such as leadership responsibilities or specialized domain expertise.
 
-<br><br><br>
+<br><br>
 
 
 
@@ -192,7 +192,7 @@ LIMIT 10;
 - **Tableau and Power BI** ranked among the top skills, reflecting strong demand for data visualization and reporting capabilities.
 - Overall, employers value a combination of **querying, analysis, visualization, and business communication skills**.
 
-<br><br><br>
+<br><br>
 
 ## 4. What are the top skills based on salary for Data Analyst roles?
 
@@ -361,7 +361,7 @@ LIMIT 15;
 
 
 
-<br><br><br><br>
+<br><br><br>
 
 # 💡 What I learned
 
@@ -374,7 +374,7 @@ LIMIT 15;
 - Developed an understanding of **data types** and how columns are defined when creating tables, including **strings, integer, numeric values, dates, timestamps, and other data formats**.
 - Gained practical experience with **Git and GitHub**, including version control, repository management, and synchronizing project files and updates between **a local environment and GitHub.**
 
-<br><br><br><br>
+<br><br><br>
 
 
 
