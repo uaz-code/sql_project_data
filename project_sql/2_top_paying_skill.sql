@@ -107,7 +107,8 @@ GROUP BY
 ORDER BY tps.salary_year_avg DESC;
 
 
-/* KEY FINDINGS
+/* 
+KEY FINDINGS
   --SQL was the most frequently requested skill, appearing 8 times,
     making it the strongest common denominator among the highest-paying
     Data Analyst jobs.
@@ -137,7 +138,10 @@ Recommendation
     skills with programming, visualization, and cloud data platform experience are 
     better positioned to progress into higher-paying senior analytics, analytics engineering, 
     and leadership roles.
+    */
 
+
+    /*
            (JSON for same)
            [
   {
