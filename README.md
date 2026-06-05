@@ -33,7 +33,7 @@ The main objectives of this project are to explore the Data Analyst job market a
 # **🔍 The Analysis**
 The analysis was conducted with a focus on the following **five core objectives:**
 
-  ## 1. What are the top-paying remote jobs for Data Analyst?
+  ### 1. What are the top-paying remote jobs for Data Analyst?
 
   Analyzed Data Analyst job postings to identify the top **10 highest-paying** remote roles. Positions without salary information were excluded to ensure accurate salary comparisons and to gain insights into the roles offering the highest compensation.
 
@@ -84,7 +84,7 @@ LIMIT 10;
 
 <br><br>
 
-  ## 2. What are the skills required for these high paying jobs?
+  ### 2. What are the skills required for these high paying jobs?
 
 This analysis builds on the previous table of the top 10 highest-paying remote Data Analyst roles by incorporating the associated **technical skill requirements**, highlighting the key competencies linked to **higher salaries** and helping job seekers prioritize skills for career growth.
 
@@ -158,7 +158,7 @@ ORDER BY tps.salary_year_avg DESC;
 
 
 
-  ## 3. What are the most in demand skills for Data Analyst?
+  ### 3. What are the most in demand skills for Data Analyst?
 
   I looked at **all job postings**, not just remote ones, to find the **top 10 most in-demand data analysis skills** based on how often they appear. This gives a clearer view of the most commonly required **skills** in the overall job market and what job seekers should focus on.
 
@@ -194,7 +194,7 @@ LIMIT 10;
 
 <br><br>
 
-## 4. What are the top skills based on salary for Data Analyst roles?
+### 4. What are the top skills based on salary for Data Analyst roles?
 
 - I analyzed the **average salary** associated with each skill for Data Analyst roles, focusing only on positions with specified salary data, regardless of location. This helps reveal how different skills influence salary levels and identifies the most financially rewarding skills in the field. The results are limited to **the top 10 highest-paying skills**.
 
@@ -244,7 +244,7 @@ LIMIT 10;
 
 <br><br>
 
-## 5. What are the most optimal skills to learn? i.e High Demand & High Salary
+### 5. What are the most optimal skills to learn? i.e High Demand & High Salary
 
 I used this analysis to identify the most **optimal skills for Data Analyst roles** by combining demand (job count) and average salary. The data was filtered in two ways:
 
