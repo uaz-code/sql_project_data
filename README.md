@@ -1,6 +1,6 @@
 # **📊 Introduction**
 
-This project analyzes the **Data Analyst job market**, examining which skills are most in demand and which are associated with 💰 **higher average salaries** within Data Analyst roles. By evaluating both 🚀 **demand** and salary trends, the analysis identifies the 🍳 **skills** that offer the strongest combination of job opportunities and earning potential for career development in Data Analytics.
+This project analyzes the **Data Analyst job market**, examining which skills are most in 🔥demand and which are associated with 💰 **higher average salaries** within Data Analyst roles. By evaluating both  **demand** and salary trends, the analysis identifies the 🍳 **skills** that offer the strongest combination of job opportunities and earning potential for career development in Data Analytics.
 
 SQL queries: [Project Data](/project_sql/)
 
